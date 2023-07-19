@@ -26,6 +26,7 @@ public class TicketServiceImpl implements TicketService {
 		return ticketRepository.save(ticket);
 	}
 
+
 	@Override
 	public Ticket getTicket(long ticketId) {
 
@@ -45,8 +46,9 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public List<Ticket> getByKeyword(String keyword) {
-		return ticketRepository.findByKeyword(keyword);
+	public List<Ticket> searchByKeyword(String keyword) {
+		
+		return ticketRepository.findByTitleContainingIgnoreCase(keyword);
 	}
 
 	@Override
@@ -64,5 +66,4 @@ public class TicketServiceImpl implements TicketService {
 
 		return ticketRepository.save(ticket_db);
 	}
-
 }

@@ -15,5 +15,6 @@ public interface TicketService {
 	void deleteTicket(long ticketId);
 
 	Ticket editTicket(long ticketId, Ticket ticket);
-	List<Ticket> getByKeyword(String keyword);
+	
+	List<Ticket> searchByKeyword(String keyword);
 }

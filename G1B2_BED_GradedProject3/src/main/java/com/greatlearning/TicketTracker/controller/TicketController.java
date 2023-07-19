@@ -72,15 +72,18 @@ public class TicketController {
 		return "tickets/view-ticket";
 
 	}
-	 @RequestMapping(path = {"/search"})
-	 public String home(Ticket ticket, Model model, String keyword) {
-	  if(keyword!=null) {
-	   List<Ticket> list = ticketService.getByKeyword(keyword);
-	   model.addAttribute("list", list);
-	  }else {
-	  List<Ticket> list = ticketService.getAllTickets();
-	  model.addAttribute("list", list);}
-	  return "/ticket/list";
-	 }
+	@RequestMapping("/search")
+	public String searchTicket(Model model, String keyword) {
+		if (keyword != null) {
+			List<Ticket> list = ticketService.searchByKeyword(keyword);
+			model.addAttribute("keyword", list);
+			return "tickets/search-tickets";
+		} else {
+			List<Ticket> list = ticketService.getAllTickets();
+			model.addAttribute("tickets", list);
+
+			return "redirect:/ticket/list";
+		}
+	}
 
 }

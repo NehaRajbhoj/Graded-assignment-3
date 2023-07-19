@@ -14,15 +14,27 @@
 	crossorigin="anonymous">
 
 <title>Update Ticket</title>
+<style>
+h3 {
+	color: white;
+	background-color: #335FFF;
+	text-align: center;
+}
 
+h2 {
+	color: blue;
+	text-align: left;
+	text-decoration-style: solid;
+}
+</style>
 </head>
 
 <body>
 
 	<div class="container">
-
-		<h3 style="color: blue">Ticket Tracker Application</h3>
-
+		<br> <br>
+		<h3>Ticket Tracker Application</h3>
+		<br>
 		<form action="#" th:action="@{/ticket/update}" th:object="${ticket}"
 			method="POST">
 
@@ -37,13 +49,12 @@
 				th:field="*{content}" class="form-control mb-4 col-4"> <input
 				type="hidden" th:field="*{edited_date}" />
 			<button type="submit" class="btn btn-info col-2">Submit</button>
-
 		</form>
 
 		<hr>
-		<a th:href="@{/ticket/list}">Back to Employee List</a>
-
+		<a th:href="@{/ticket/list}">Back to Ticket List</a>
 	</div>
+
 </body>
 
 </html>

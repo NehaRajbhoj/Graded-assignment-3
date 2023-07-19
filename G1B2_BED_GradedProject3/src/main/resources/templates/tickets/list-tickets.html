@@ -15,33 +15,42 @@
 
 <title>Ticket Tracker Application</title>
 
+<style>
+h3 {
+	color: white;
+	background-color: #335FFF;
+	text-align: center;
+}
 
+h2 {
+	color: blue;
+	text-align: left;
+	text-decoration-style: solid;
+}
+</style>
 </head>
 
 <body>
 
 	<div class="container">
-
-		<h3 style="color: blue">Ticket Tracker Application</h3>
-
-		<h3>List of Tickets</h3>
-		<hr>
-
+		<br> <br>
+		<h3>Ticket Tracker Application</h3>
 		<!-- Add a button -->
 		<a th:href="@{/ticket/new}" class="btn btn-primary btn-sm mb-3">
 			New Ticket </a>
-		<form th:action="@{/ticket/search}" method="get">
-  		<input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by Title" size="50" >
-  		<button type="submit" class="btn btn-info" >Search</button>
-  
-  	</form>
-  		<ul>
-        <li th:each="keyword : ${keyword}" th:text="${keyword}"></li>
-    </ul>
+		<form th:action="@{/ticket/search}" method="GET">
+			<input type="text" name="keyword" th:value="${keyword}"
+				placeholder="Find By Title" size="50">
+			<button type="submit" class="btn btn-info">Search</button>
+
+		</form>
+		<br>
+		<h2>List of Tickets</h2>
+		<hr>
 
 		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
-				<tr>
+				<tr align="center">
 					<th>#</th>
 					<th>Ticket Title</th>
 					<th>Ticket Short Description</th>
