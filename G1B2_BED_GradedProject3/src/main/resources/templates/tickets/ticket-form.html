@@ -46,10 +46,10 @@ h2 {
 				th:field="*{title}" class="form-control mb-4 col-4"
 				placeholder="Enter ticket Title"> <input type="text"
 				th:field="*{description}" class="form-control mb-4 col-4"
-				placeholder="Enter ticket Description"> <input type="text"
-				th:field="*{content}" class="form-control mb-4 col-4"
-				placeholder="Enter Content"> <input type="hidden"
-				th:field="*{created_date}" />
+				placeholder="Enter ticket Description">
+			<textarea th:field="*{content}" class="form-control mb-4 col-4"
+				rows="5" cols="50" placeholder="Enter Content"></textarea>
+			<input type="hidden" th:field="*{created_date}" />
 			<button type="submit" class="btn btn-info col-2">Submit</button>
 		</form>
 

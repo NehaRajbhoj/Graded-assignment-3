@@ -73,17 +73,11 @@ public class TicketController {
 
 	}
 	@RequestMapping("/search")
-	public String searchTicket(Model model, String keyword) {
-		if (keyword != null) {
-			List<Ticket> list = ticketService.searchByKeyword(keyword);
-			model.addAttribute("keyword", list);
-			return "tickets/search-tickets";
-		} else {
-			List<Ticket> list = ticketService.getAllTickets();
-			model.addAttribute("tickets", list);
-
-			return "redirect:/ticket/list";
-		}
+	public String searchTicket(@RequestParam("keyword") String searchWord, Model theModel)
+	{		
+			List<Ticket> list = ticketService.searchByKeyword(searchWord);
+			theModel.addAttribute("tickets", list);
+			return "tickets/list-tickets";
 	}
 
 }
